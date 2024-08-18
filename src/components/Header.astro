@@ -6,26 +6,35 @@ const currentPath = pathname.slice(1); // remove the first "/"
 
 <style>
     .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        padding: 1px 20px; /* Adjust padding for spacing */
+        z-index: 1000;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem;
+        backdrop-filter: blur(10px); /* Apply blur to the background */
+        background-color: rgba(
+            255,
+            255,
+            255,
+            0.4
+        ); /* Semi-transparent background */
+        -webkit-backdrop-filter: blur(10px); /* For Safari support */
+        box-shadow: 0 0px 2px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow to make it stand out */
     }
 
     .nav-links {
         display: flex;
         list-style: none;
-        gap: 1rem;
-        margin: 0;
         padding: 0rem;
     }
 
     .nav-links a {
         text-decoration: none;
-        color: grey;
-        font-weight: 700;
-        position: relative; /* Position relative for absolute positioning of border */
-        padding-bottom: 5px; /* Add space for the border */
+        color: black;
     }
 
     .nav-links a:hover {
@@ -34,9 +43,10 @@ const currentPath = pathname.slice(1); // remove the first "/"
 
     .nav-links a.active {
         color: darkcyan;
-        /*border-bottom: 2px solid #0077b5; /* Example active color */*/
-        /*width: 80%;*/
-        /*gap: 1rem;*/
+    }
+
+    .home a.active {
+        color: black;
     }
 
     .social-icons {
@@ -51,14 +61,43 @@ const currentPath = pathname.slice(1); // remove the first "/"
     .social-icons a:hover {
         color: #0077b5; /* Example hover color */
     }
+
+    .home {
+        font-weight: 800;
+    }
+
+    .nav-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 2px;
+        transition: transform 0.3s ease;
+    }
+
+    .home a:hover {
+        color: black;
+    }
+
+    .home:hover .nav-icon {
+        transform: rotate(-25deg); /* Rotate only the icon on hover */
+    }
 </style>
 
 <header class="header">
     <nav class="nav">
         <div class="nav-links">
-            <a class={currentPath === "" ? "active" : ""} href="/">Home</a>
-            <a class={currentPath === "research" ? "active" : ""} href="/research"
-                >Research</a
+            <div class="home">
+                <a class={currentPath === "" ? "active" : ""} href="/">
+                    <img
+                        src="/assets/home-test.svg"
+                        alt="Home Icon"
+                        class="nav-icon"
+                    />
+                    Ismaël Lajaaiti
+                </a>
+            </div>
+            <a
+                class={currentPath === "research" ? "active" : ""}
+                href="/research">Research</a
             >
             <a class={currentPath === "blog" ? "active" : ""} href="/blog"
                 >Blog</a
