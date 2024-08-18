@@ -1,11 +1,67 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Greeting from "../components/Greeting";
-const pageTitle = "Home Page";
+import Publication from "../components/Publication.astro";
+const pageTitle = "Ismaël Lajaaiti";
 ---
 
+<style>
+    /* General styles for the bio section */
+    .bio-section {
+        display: flex; /* Use flexbox for layout */
+        align-items: center; /* Center items vertically */
+        gap: 30px; /* Space between bio text and photo */
+    }
+
+    .bio-text {
+        flex: 1; /* Allow the text to take up available space */
+        text-align: justify; /* Justify the text within the container */
+    }
+
+    .bio-photo img {
+        width: 120px; /* Set the width of the photo */
+        height: 120px; /* Set the height of the photo */
+        border-radius: 50%; /* Make the photo circular */
+        object-fit: cover; /* Ensure the image covers the circle */
+        border: 3px solid white; /* Optional: Add a border around the photo */
+    }
+</style>
+
 <BaseLayout pageTitle={pageTitle}>
-    <h2>My awesome blog subtitle</h2>
-    <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
-    <p>Here is some content for the home page.</p>
+    <body>
+        <section class="bio-section">
+            <div class="bio-text">
+                <p>
+                    I'm a PhD student in theoretical ecology at <a
+                        href="https://isem-evolution.fr/"
+                        target="_blank">ISEM</a
+                    > in Montpellier, France. I explore the simple patterns that
+                    emerge from the complexity of ecological systems using mathematical
+                    equations and computer simulations. Outside the lab, you’ll likely
+                    find me solving problems at the climbing gym.
+                </p>
+            </div>
+            <div class="bio-photo">
+                <img src="/assets/me.png" alt="Photo of [Your Name]" />
+            </div>
+        </section>
+
+        <h1>Interests</h1>
+        <p>
+            Stability from Species to Ecosystems · Food Webs · Biotic
+            Interactions · Julia Programming Language
+        </p>
+
+        <h1>Publications</h1>
+        <Publication
+            title="How biotic interactions structure species responses to perturbations"
+            authors="I. Lajaaiti, S. Kéfi, J-F. Arnoldi"
+            journalName="Proceedings of the Royal Society B"
+            date="2024"
+        />
+        <Publication
+            title="EcologicalNetworksDynamics.jl: A Julia package to simulate the temporal dynamics of complex ecological networks"
+            date="2024"
+            authors="I. Lajaaiti, I. Bonnici, S. Kéfi, H. Mayall, A. Danet, A. P. Beckerman, T. Malpas, E. Delmas"
+        />
+    </body>
 </BaseLayout>

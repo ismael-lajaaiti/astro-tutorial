@@ -1,13 +1,93 @@
 ---
-import Navigation from "./Navigation.astro";
-import Hamburger from "./Hamburger.astro";
-import ThemeIcon from "./ThemeIcon.astro";
+import Social from "./Social.astro";
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
-<header>
-    <nav>
-        <Hamburger />
-        <ThemeIcon />
-        <Navigation />
+<style>
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 1rem;
+        margin: 0;
+        padding: 0rem;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: grey;
+        font-weight: 700;
+        position: relative; /* Position relative for absolute positioning of border */
+        padding-bottom: 5px; /* Add space for the border */
+    }
+
+    .nav-links a:hover {
+        color: turquoise;
+    }
+
+    .nav-links a.active {
+        color: darkcyan;
+        /*border-bottom: 2px solid #0077b5; /* Example active color */*/
+        /*width: 80%;*/
+        /*gap: 1rem;*/
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 0.1rem;
+    }
+
+    .social-icons a {
+        color: #333;
+    }
+
+    .social-icons a:hover {
+        color: #0077b5; /* Example hover color */
+    }
+</style>
+
+<header class="header">
+    <nav class="nav">
+        <div class="nav-links">
+            <a class={currentPath === "" ? "active" : ""} href="/">Home</a>
+            <a class={currentPath === "research" ? "active" : ""} href="/research"
+                >Research</a
+            >
+            <a class={currentPath === "blog" ? "active" : ""} href="/blog"
+                >Blog</a
+            >
+            <a class={currentPath === "cv" ? "active" : ""} href="/files/cv.pdf"
+                >CV</a
+            >
+        </div>
     </nav>
+    <div class="social-icons">
+        <Social
+            url="https://github.com/ismael-lajaaiti"
+            logo="gscholar-logo.svg"
+            platform="GitHub"
+        />
+        <Social
+            url="https://github.com/ismael-lajaaiti"
+            logo="github-logo.svg"
+            platform="GitHub"
+        />
+        <Social
+            url="https://github.com/ismael-lajaaiti"
+            logo="orcid-logo.svg"
+            platform="ORCID"
+        />
+        <Social
+            url="https://github.com/ismael-lajaaiti"
+            logo="twitter-logo.svg"
+            platform="X"
+        />
+    </div>
 </header>
