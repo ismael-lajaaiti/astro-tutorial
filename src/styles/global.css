@@ -58,9 +58,9 @@ a:hover {
     color: turquoise;
 }
 
-.expanded {
-    display: unset;
-}
+/* .expanded { */
+/*     display: unset; */
+/* } */
 
 @media screen and (min-width: 636px) {
     .nav-links {
