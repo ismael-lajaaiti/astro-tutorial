@@ -1,4 +1,5 @@
 ---
+import Hamburger from "./Hamburger.astro";
 import Social from "./Social.astro";
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
@@ -27,12 +28,14 @@ const currentPath = pathname.slice(1); // remove the first "/"
     }
 
     .nav-links {
+        margin-left: 1em;
         display: flex;
-        list-style: none;
-        padding: 0rem;
+        width: auto;
     }
 
     .nav-links a {
+        display: inline-block;
+        padding: 15px 20px;
         text-decoration: none;
         color: black;
     }
@@ -84,6 +87,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
 
 <header class="header">
     <nav class="nav">
+        <Hamburger />
         <div class="nav-links">
             <div class="home">
                 <a class={currentPath === "" ? "active" : ""} href="/">
@@ -102,9 +106,6 @@ const currentPath = pathname.slice(1); // remove the first "/"
             <a class={currentPath === "blog" ? "active" : ""} href="/blog"
                 >Blog</a
             >
-            <a class={currentPath === "cv" ? "active" : ""} href="/files/cv.pdf"
-                >CV</a
-            >
         </div>
     </nav>
     <div class="social-icons">
@@ -120,13 +121,9 @@ const currentPath = pathname.slice(1); // remove the first "/"
         />
         <Social
             url="https://github.com/ismael-lajaaiti"
-            logo="orcid-logo.svg"
-            platform="ORCID"
-        />
-        <Social
-            url="https://github.com/ismael-lajaaiti"
-            logo="twitter-logo.svg"
+            logo="x-logo.svg"
             platform="X"
         />
+        <Social url="/files/cv.pdf" logo="cv-icon.svg" platform="CV" />
     </div>
 </header>
