@@ -1,0 +1,35 @@
+---
+const { title, image, link } = Astro.props;
+---
+
+<style>
+    .card img {
+        border-radius: 12px;
+        transition: transform 0.3s ease; /* Smooth transition */
+        box-shadow: 0 2px 4px grey; /* Subtle shadow */
+        width: 50%; /* Full width image */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Ensure the image covers the area */
+    }
+
+    .card img:hover {
+        transform: scale(1.03); /* Slightly enlarge the card on hover */
+        /*box-shadow: 0 4px 12px grey; /* Subtle shadow */*/
+    }
+
+    .card-title {
+        font-size: 1em; /* Font size for the title */
+        color: #333; /* Dark color for the title */
+        margin-top: 0em; /* Space between card and title */
+        /*font-weight: 300; /* Light font weight */
+        /*color: grey;*/
+        transition: color 0.3s ease; /* Smooth transition */
+    }
+
+
+</style>
+
+<a class="card" href={link}>
+    <img src={image} alt="Blog Post Image" />
+    <p class="card-title">{title}</p>
+</a>

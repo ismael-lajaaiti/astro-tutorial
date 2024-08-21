@@ -1,5 +1,5 @@
 ---
-title: My Fourth Blog Post
+title: My Fourth Blog Post has a very long title
 author: Astro Learner
 description: "This post will show up on its own!"
 image:

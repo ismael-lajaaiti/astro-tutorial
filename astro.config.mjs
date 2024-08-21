@@ -1,22 +1,19 @@
 import { defineConfig } from 'astro/config';
 import remarkMath from "remark-math";
 import rehypeMathJax from "rehype-mathjax";
-
-import mdx from "@astrojs/mdx";
+import expressiveCode from "astro-expressive-code";
+import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections'
 
 // https://astro.build/config
 export default defineConfig({
     site: "https://astro-tutorial-2048.netlify.app",
+    integrations: [expressiveCode(
+        { plugins: [pluginCollapsibleSections()], }
+    )],
     markdown: {
-        shikiConfig: {
-            theme: "dracula",
-            wrap: false
-        }
-    },
-    markdown: {
-        smartypants: false,
-        gfm: false,
+        // syntaxHighlight: 'shiki',
+        extendDefaultPlugins: true,
         remarkPlugins: [remarkMath],
-        rehypePlugins: [rehypeMathJax],
-    },
+        rehypePlugins: [rehypeMathJax]
+    }
 });

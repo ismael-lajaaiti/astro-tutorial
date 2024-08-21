@@ -1,39 +1,86 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
+
+// Extracting the month and year from the date
+const pubDate = new Date(frontmatter.pubDate);
+const monthYear = pubDate.toLocaleString("default", {
+    month: "long",
+    year: "numeric",
+});
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-    <p>Published on: {frontmatter.pubDate.toString().slice(0, 10)}</p>
-    <p>Written by {frontmatter.author}</p>
-    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
     <div class="tags">
         {
             frontmatter.tags.map((tag) => (
                 <p class="tag">
-                    <a href={`/tags/${tag}`}>{tag}</a>
+                    <a href={`/tags/${tag}`}>#{tag}</a>
                 </p>
             ))
         }
     </div>
-    <slot />
+    <img
+        src={frontmatter.image.url}
+        class="post-image"
+        alt={frontmatter.image.alt}
+    />
+    <div class="content">
+        <slot />
+    </div>
 </BaseLayout>
+
 <style>
-    a {
-        color: #00539f;
+    .author-date {
+        text-align: center;
+        font-size: 1em;
+        font-weight: 100;
     }
 
+    .author {
+        color: gray;
+        margin-top: 0.5em; /* Reduced margin */
+    }
+
+    /* Image Styles */
+    .post-image {
+        max-width: 100%; /* Slightly smaller image width */
+        height: auto;
+        border-radius: 8px; /* Smaller border radius */
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); /* Slightly smaller shadow */
+        margin: 0.1em auto; /* Reduced margin */
+    }
+
+    /* Tags */
     .tags {
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
+        margin: 1em 0; /* Reduced margin */
     }
 
     .tag {
-        margin: 0.25em;
-        border: dotted 1px #a1a1a1;
-        border-radius: 0.5em;
-        padding: 0.5em 1em;
-        font-size: 1em;
-        background-color: #f8fcfd;
+        margin: 0em;
+        padding: 0.4em 0.8em; /* Reduced padding */
+        font-weight: 100;
+        font-size: 0.8em; /* Smaller font size */
+        text-transform: uppercase;
+        color: darkcyan;
+        transition: color 0.3s ease;
+    }
+
+    .tag:hover {
+        color: turquoise;
+    }
+
+    .tag:hover a {
+        color: turquoise;
+    }
+
+    .content {
+        line-height: 1.6; /* Reduced line height */
+        font-size: 1em; /* Smaller font size */
+        max-width: 700px; /* Reduced max-width */
+        margin: 20px auto;
     }
 </style>
