@@ -4,7 +4,7 @@ pubDate: 2024-08-21
 description: This is the first post of my new Astro blog.
 author: Ismaël Lajaaiti
 image:
-    url: 'https://docs.astro.build/assets/rose.webp'
+    url: '/assets/bigeatsmall.jpg'
     alt: 'The Astro logo on a dark background with a pink glow.'
 tags: ["ecology", "foodwebs", "julia"]
 ---

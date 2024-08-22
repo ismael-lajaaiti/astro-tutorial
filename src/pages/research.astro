@@ -1,8 +1,32 @@
 ---
+import FullWidthImage from "../components/FullWidthImage.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Research";
 ---
 
+<style>
+    .research-statement {
+        flex: 1; /* Allow the text to take up available space */
+        text-align: justify; /* Justify the text within the container */
+    }
+</style>
+
 <BaseLayout pageTitle={pageTitle}>
-    <p>Learn more about my research.</p>
+    <FullWidthImage src="/assets/blackboard.jpg" alt="Blackboard" />
+    <section class="research-statement">
+        <p>
+            I seek to understand what makes a community of interacting species
+            stable in the face of disturbances. To do this, I study how the
+            complex web of interactions among species shapes their responses to
+            different types of disturbances, from short-term events to long-term
+            changes. My goal is to uncover how species' responses are connected:
+            for instance, are species that are sensitive to short-term
+            disturbances also vulnerable to long-term changes? Additionally, I
+            want to see how these relationships vary depending on the type of
+            interactions within the community, such as whether competitive and
+            mutualistic communities respond similarly to different
+            perturbations. I approach these questions using a combination of
+            mathematical and numerical tools.
+        </p>
+    </section>
 </BaseLayout>

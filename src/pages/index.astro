@@ -1,7 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Publication from "../components/Publication.astro";
-const pageTitle = "Ecology, Webs, and Theory";
+import FullWidthImage from "../components/FullWidthImage.astro";
+import Tag from "../components/Tag.astro";
+const pageTitle = "Ecology, Webs, and Programming";
+const interests = [
+    "ecology",
+    "stabiltiy",
+    "foodwebs",
+    "julia",
+    "web-development",
+    "astro",
+];
 ---
 
 <style>
@@ -21,39 +31,21 @@ const pageTitle = "Ecology, Webs, and Theory";
         height: 120px; /* Set the height of the photo */
         border-radius: 50%; /* Make the photo circular */
         object-fit: cover; /* Ensure the image covers the circle */
-        border: 3px solid white; /* Optional: Add a border around the photo */
+        border: 3px solid lightcoral; /* Optional: Add a border around the photo */
     }
 
-    .full-width-container {
-        position: relative;
-        width: 100vw; /* Full viewport width */
-        height: 0;
-        padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100) */
-        overflow: hidden;
-        margin-left: calc(-50vw + 50%);
-        margin-right: calc(-50vw + 50%);
-        z-index: -1; /* Ensure it doesn't overlap other content */
+    .interest-tag {
+        display: inline-flex;
     }
 
-    .full-width-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Crop and cover the container */
+    .separator {
+        margin: 0 0.3rem; /* Space around the separator */
     }
 </style>
 
 <BaseLayout pageTitle={pageTitle}>
     <body>
-        <div class="full-width-container">
-            <img
-                src="/assets/hero.jpg"
-                alt="Ernst Haeckel"
-                class="full-width-image"
-            />
-        </div>
+        <FullWidthImage src="/assets/hero.jpg" alt="Ernst Haeckel" />
         <section class="bio-section">
             <h2>Ismaël Lajaaiti</h2>
             <div class="bio-content">
@@ -74,11 +66,20 @@ const pageTitle = "Ecology, Webs, and Theory";
             </div>
         </section>
 
-        <h2>Interests</h2>
-        <p>
-            Stability from Species to Ecosystems · Food Webs · Biotic
-            Interactions · Julia Programming Language
-        </p>
+        <section class="interests">
+            {
+                interests.map((interest, index) => (
+                    <>
+                        <div class="interest-tag">
+                            <Tag tagName={interest} />
+                        </div>
+                        {index < interests.length - 1 && (
+                            <span class="separator"> • </span>
+                        )}
+                    </>
+                ))
+            }
+        </section>
 
         <h2>Publications</h2>
         <Publication
