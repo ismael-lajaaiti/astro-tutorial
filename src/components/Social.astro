@@ -1,13 +1,13 @@
 ---
+import { Icon } from "astro-icon/components";
 const { url, logo, platform } = Astro.props;
 ---
 
 <a href=`${url}` target="_blank" class="social-button">
-    <img src=`/assets/${logo}` alt=`${platform} Logo` />
+    <Icon name=`${logo}` class="social-icon" />
 </a>
 
 <style>
-    /* Style the button */
     .social-button {
         display: inline-block;
         padding: 2px;
@@ -19,16 +19,14 @@ const { url, logo, platform } = Astro.props;
         transition: filter 0.3s ease;
     }
 
-    /* Style the image */
-    .social-button img {
-        width: 24px;
-        height: 24px;
+    .social-icon {
+        width: 25px;
+        height: 25px;
         vertical-align: middle;
     }
 
-    /* Hover effect */
     .social-button:hover {
-        filter: invert(66%) sepia(100%) saturate(236%) hue-rotate(140deg)
+        filter: invert(36%) sepia(100%) saturate(236%) hue-rotate(140deg)
             brightness(100%) contrast(90%);
     }
 </style>

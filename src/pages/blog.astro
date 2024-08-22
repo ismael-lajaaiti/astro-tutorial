@@ -1,46 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("posts");
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Card from "../components/Card.astro";
+import BlogLayout from "../layouts/BlogLayout.astro";
 const pageTitle = "All blog posts";
 
 const sortedPosts = allPosts.slice().reverse(); // Make a copy and reverse it
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-    <style>
-        .blog-page {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1em; /* Space between cards */
-            justify-content: center; /* Center align cards */
-        }
-
-        .card-container {
-            text-align: center; /* Center align title */
-            margin: 0em; /* Margin around each card */
-        }
-
-        .card-title {
-            font-size: 1em; /* Font size for the title */
-            color: #333; /* Dark color for the title */
-            margin-top: 0.5em; /* Space between card and title */
-            font-weight: 300; /* Light font weight */
-        }
-    </style>
-
-    <div class="blog-page">
-        {
-            sortedPosts.map((post) => (
-                <div class="card-container">
-                    <Card
-                        image={post.data.image.url}
-                        link={`/posts/${post.slug}`}
-                        title={post.data.title}
-                    />
-                </div>
-            ))
-        }
-    </div>
-</BaseLayout>
+<BlogLayout pageTitle={pageTitle} posts={sortedPosts} />

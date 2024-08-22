@@ -2,10 +2,11 @@
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
 
-// Extracting the month and year from the date
+// Formatting the date in dd/mm/yyyy format
 const pubDate = new Date(frontmatter.pubDate);
-const monthYear = pubDate.toLocaleString("default", {
-    month: "long",
+const formattedDate = pubDate.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
     year: "numeric",
 });
 ---
@@ -20,67 +21,58 @@ const monthYear = pubDate.toLocaleString("default", {
             ))
         }
     </div>
+    <p class="date">{formattedDate}</p>
+
     <img
         src={frontmatter.image.url}
         class="post-image"
         alt={frontmatter.image.alt}
     />
+
     <div class="content">
         <slot />
     </div>
+
+    <style>
+        .tags {
+            display: flex;
+            justify-content: center;
+        }
+
+        .tag {
+            font-family: monospace;
+            padding: 0.3em 0.7em;
+            color: darkcyan;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .tag:hover {
+            color: turquoise;
+            border-color: turquoise;
+        }
+
+        .date {
+            text-align: center;
+            font-family: monospace;
+            color: #777;
+            margin-left: auto; /* Ensures the date aligns to the right */
+            margin-bottom: 0em;
+        }
+
+        .post-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+            margin: 1em auto;
+        }
+
+        .content {
+            line-height: 1.6;
+            font-size: 1em;
+            max-width: 700px;
+            margin: 20px auto;
+        }
+    </style>
 </BaseLayout>
-
-<style>
-    .author-date {
-        text-align: center;
-        font-size: 1em;
-        font-weight: 100;
-    }
-
-    .author {
-        color: gray;
-        margin-top: 0.5em; /* Reduced margin */
-    }
-
-    /* Image Styles */
-    .post-image {
-        max-width: 100%; /* Slightly smaller image width */
-        height: auto;
-        border-radius: 8px; /* Smaller border radius */
-        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); /* Slightly smaller shadow */
-        margin: 0.1em auto; /* Reduced margin */
-    }
-
-    /* Tags */
-    .tags {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin: 1em 0; /* Reduced margin */
-    }
-
-    .tag {
-        margin: 0em;
-        padding: 0.4em 0.8em; /* Reduced padding */
-        font-weight: 100;
-        font-size: 0.8em; /* Smaller font size */
-        text-transform: uppercase;
-        color: darkcyan;
-        transition: color 0.3s ease;
-    }
-
-    .tag:hover {
-        color: turquoise;
-    }
-
-    .tag:hover a {
-        color: turquoise;
-    }
-
-    .content {
-        line-height: 1.6; /* Reduced line height */
-        font-size: 1em; /* Smaller font size */
-        max-width: 700px; /* Reduced max-width */
-        margin: 20px auto;
-    }
-</style>

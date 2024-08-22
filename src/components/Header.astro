@@ -1,6 +1,7 @@
 ---
-import Hamburger from "./Hamburger.astro";
+import { Icon } from "astro-icon/components";
 import Social from "./Social.astro";
+
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 ---
@@ -11,119 +12,95 @@ const currentPath = pathname.slice(1); // remove the first "/"
         top: 0;
         left: 0;
         width: 100vw;
-        padding: 1px 20px; /* Adjust padding for spacing */
+        padding: 1px 20px;
         z-index: 1000;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        backdrop-filter: blur(10px); /* Apply blur to the background */
-        background-color: rgba(
-            255,
-            255,
-            255,
-            0.4
-        ); /* Semi-transparent background */
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.4);
         -webkit-backdrop-filter: blur(10px); /* For Safari support */
-        box-shadow: 0 0px 2px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow to make it stand out */
+        box-shadow: 0 0px 2px rgba(0, 0, 0, 0.1);
     }
 
     .nav-links {
-        margin-left: 1em;
         display: flex;
-        width: auto;
+        margin-left: 1em;
     }
 
     .nav-links a {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
         padding: 15px 20px;
         text-decoration: none;
         color: black;
+        transition: color 0.3s ease;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .home a:hover {
         color: turquoise;
     }
 
-    .nav-links a.active {
-        color: darkcyan;
-    }
-
+    .nav-links a.active,
     .home a.active {
-        color: black;
-    }
-
-    .social-icons {
-        display: flex;
-        gap: 0.1rem;
-    }
-
-    .social-icons a {
-        color: #333;
-    }
-
-    .social-icons a:hover {
-        color: #0077b5; /* Example hover color */
+        color: darkcyan;
     }
 
     .home {
         font-weight: 600;
+        display: flex;
+        align-items: center;
     }
 
     .nav-icon {
-        width: 18px;
-        height: 18px;
-        margin-right: 2px;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
         transition: transform 0.3s ease;
     }
 
-    .home a:hover {
-        color: black;
-    }
-
     .home:hover .nav-icon {
-        transform: rotate(25deg); /* Rotate only the icon on hover */
+        transform: rotate(45deg);
     }
 </style>
 
 <header class="header">
     <nav class="nav">
-        <Hamburger />
         <div class="nav-links">
             <div class="home">
                 <a class={currentPath === "" ? "active" : ""} href="/">
-                    <img
-                        src="/assets/home-test.svg"
-                        alt="Home Icon"
-                        class="nav-icon"
-                    />
+                    <Icon class="nav-icon" name="carbon:hybrid-networking" />
                     Ismaël Lajaaiti
                 </a>
             </div>
             <a
                 class={currentPath === "research" ? "active" : ""}
-                href="/research">Research</a
+                href="/research"
             >
-            <a class={currentPath === "blog" ? "active" : ""} href="/blog"
-                >Blog</a
-            >
+                Research
+            </a>
+            <a class={currentPath === "blog" ? "active" : ""} href="/blog">
+                Blog
+            </a>
         </div>
     </nav>
     <div class="social-icons">
         <Social
             url="https://github.com/ismael-lajaaiti"
-            logo="gscholar-logo.svg"
+            logo="academicons:google-scholar"
             platform="GitHub"
         />
         <Social
             url="https://github.com/ismael-lajaaiti"
-            logo="github-logo.svg"
+            logo="mdi:github"
             platform="GitHub"
         />
         <Social
             url="https://github.com/ismael-lajaaiti"
-            logo="x-logo.svg"
+            logo="ri:twitter-x-fill"
             platform="X"
         />
-        <Social url="/files/cv.pdf" logo="cv-icon2.svg" platform="CV" />
+        <Social url="/files/cv.pdf" logo="tabler:file-cv" platform="CV" />
     </div>
 </header>
