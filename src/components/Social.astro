@@ -3,30 +3,10 @@ import { Icon } from "astro-icon/components";
 const { url, logo, platform } = Astro.props;
 ---
 
-<a href=`${url}` target="_blank" class="social-button">
-    <Icon name=`${logo}` class="social-icon" />
+<a
+    href={url}
+    target="_blank"
+    class="inline-block rounded-md text-black hover:text-indigo-500"
+>
+    <Icon name={logo} class="w-6 h-6 align-middle" />
 </a>
-
-<style>
-    .social-button {
-        display: inline-block;
-        padding: 2px;
-        border-radius: 5px;
-        text-decoration: none;
-        color: white;
-        filter: invert(66%) sepia(100%) saturate(236%) hue-rotate(140deg)
-            brightness(55%) contrast(85%);
-        transition: filter 0.3s ease;
-    }
-
-    .social-icon {
-        width: 25px;
-        height: 25px;
-        vertical-align: middle;
-    }
-
-    .social-button:hover {
-        filter: invert(36%) sepia(100%) saturate(236%) hue-rotate(140deg)
-            brightness(100%) contrast(90%);
-    }
-</style>

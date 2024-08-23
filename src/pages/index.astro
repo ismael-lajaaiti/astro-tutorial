@@ -6,7 +6,7 @@ import Tag from "../components/Tag.astro";
 const pageTitle = "Ecology, Webs, and Programming";
 const interests = [
     "ecology",
-    "stabiltiy",
+    "stability",
     "foodwebs",
     "julia",
     "web-development",
@@ -14,73 +14,45 @@ const interests = [
 ];
 ---
 
-<style>
-    .bio-content {
-        display: flex; /* Use flexbox for layout */
-        align-items: center; /* Center items vertically */
-        gap: 30px; /* Space between bio text and photo */
-    }
-
-    .bio-text {
-        flex: 1; /* Allow the text to take up available space */
-        text-align: justify; /* Justify the text within the container */
-    }
-
-    .bio-photo img {
-        width: 120px; /* Set the width of the photo */
-        height: 120px; /* Set the height of the photo */
-        border-radius: 50%; /* Make the photo circular */
-        object-fit: cover; /* Ensure the image covers the circle */
-        border: 3px solid lightcoral; /* Optional: Add a border around the photo */
-    }
-
-    .interest-tag {
-        display: inline-flex;
-    }
-
-    .separator {
-        margin: 0 0.3rem; /* Space around the separator */
-    }
-</style>
-
 <BaseLayout pageTitle={pageTitle}>
-    <body>
-        <FullWidthImage src="/assets/hero.jpg" alt="Ernst Haeckel" />
-        <section class="bio-section">
-            <h2>Ismaël Lajaaiti</h2>
-            <div class="bio-content">
-                <div class="bio-text">
-                    <p>
-                        I'm a PhD student in theoretical ecology at <a
-                            href="https://isem-evolution.fr/"
-                            target="_blank">ISEM</a
-                        > in Montpellier, France. I explore the simple patterns that
-                        emerge from the complexity of ecological systems using mathematical
-                        equations and computer simulations. Outside the lab, you’ll
-                        likely find me solving problems at the climbing gym.
-                    </p>
-                </div>
-                <div class="bio-photo">
-                    <img src="/assets/me.png" alt="Photo of [Your Name]" />
-                </div>
+    <FullWidthImage src="/assets/hero.jpg" alt="Spider web" />
+
+    <section class="py-2">
+        <h2>Ismaël Lajaaiti</h2>
+        <div class="flex items-center gap-8 mt-4">
+            <div class="flex-1 text-justify">
+                <p>
+                    I'm a PhD student in theoretical ecology at <a
+                        href="https://isem-evolution.fr/">ISEM</a
+                    > in Montpellier, France. I explore the simple patterns that
+                    emerge from the complexity of ecological systems using mathematical
+                    equations and computer simulations. Outside the lab, you’ll likely
+                    find me solving problems at the climbing gym.
+                </p>
             </div>
-        </section>
+            <div class="flex-shrink-0">
+                <img
+                    src="/assets/me.png"
+                    alt="Photo of Ismaël Lajaaiti"
+                    class="w-32 h-32 rounded-full object-cover border-4 border-orange-200"
+                />
+            </div>
+        </div>
+    </section>
 
-        <section class="interests">
-            {
-                interests.map((interest, index) => (
-                    <>
-                        <div class="interest-tag">
-                            <Tag tagName={interest} />
-                        </div>
-                        {index < interests.length - 1 && (
-                            <span class="separator"> • </span>
-                        )}
-                    </>
-                ))
-            }
-        </section>
+    <section class="p-2">
+        {
+            interests.map((interest) => (
+                <>
+                    <div class="inline-flex">
+                        <Tag tagName={interest} />
+                    </div>
+                </>
+            ))
+        }
+    </section>
 
+    <section>
         <h2>Publications</h2>
         <Publication
             title="How biotic interactions structure species responses to perturbations"
@@ -93,5 +65,5 @@ const interests = [
             date="2024"
             authors="I. Lajaaiti, I. Bonnici, S. Kéfi, H. Mayall, A. Danet, A. P. Beckerman, T. Malpas, E. Delmas"
         />
-    </body>
+    </section>
 </BaseLayout>

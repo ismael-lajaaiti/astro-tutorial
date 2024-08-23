@@ -1,71 +1,41 @@
-/* Register your custom font family and tell the browser where to find it. */
-@font-face {
-    font-family: 'Noto';
-    src: url('/fonts/noto-sans-latin-400-normal.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
+@import "@fontsource-variable/noto-sans";
+@import "@fontsource/playfair-display";
 
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('/fonts/playfair-display-latin-400-normal.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    body {
+        @apply font-sans;
+    }
+
+    h1 {
+        @apply scroll-m-20 text-4xl font-playfair tracking-tight lg:text-5xl;
+    }
+
+    h2 {
+        @apply scroll-m-20 border-b py-2 text-3xl font-playfair;
+    }
+
+    p {
+        @apply leading-7 [&:not(:first-child)]:mt-6;
+    }
+
+    a {
+        @apply text-indigo-400;
+    }
+
+    a:hover {
+        @apply text-indigo-600;
+    }
 }
 
 html {
-    background-color: oldlace;
-    font-family: 'Noto', sans-serif;
-    color: black;
+    @apply bg-orange-50;
 }
 
 body {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 80ch;
-    padding: 1rem;
-    line-height: 1.5;
-    position: relative;
-    z-index: 1;
+    @apply mx-auto w-full max-w-[80ch] p-4 leading-relaxed relative z-10;
 }
-
-* {
-    box-sizing: border-box;
-}
-
-h1 {
-    font-family: 'Playfair Display', serif;
-    text-align: center;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-h2 {
-    font-weight: 400;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 2px;
-    margin-bottom: 0px;
-}
-
-a {
-    color: darkcyan;
-    /* Default link color */
-    text-decoration: none;
-    /* Remove underline from links */
-    transition: color 0.3s ease;
-    /* Smooth transition for color change */
-}
-
-/* Link hover styles */
-a:hover {
-    color: turquoise;
-}
-
-/* .expanded { */
-/*     display: unset; */
-/* } */

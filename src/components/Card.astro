@@ -2,28 +2,15 @@
 const { title, image, link } = Astro.props;
 ---
 
-<style>
-    .card img {
-        border-radius: 12px;
-        transition: transform 0.3s ease; /* Smooth transition */
-        box-shadow: 0 2px 4px grey; /* Subtle shadow */
-        width: 50%; /* Full width image */
-        height: auto; /* Maintain aspect ratio */
-        object-fit: cover; /* Ensure the image covers the area */
-    }
-
-    .card img:hover {
-        transform: scale(1.03); /* Slightly enlarge the card on hover */
-    }
-
-    .card-title {
-        font-size: 1em; /* Font size for the title */
-        color: #333; /* Dark color for the title */
-        margin-top: 0em; /* Space between card and title */
-    }
-</style>
-
-<a class="card" href={link}>
-    <img src={image} alt="Blog Post Image" />
-    <p class="card-title">{title}</p>
+<a href={link} class="group p-3">
+    <img
+        src={image}
+        alt="Blog Post Image"
+        class="w-full rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105"
+    />
+    <p
+        class="sm:text-base text-lg text-center text-gray-500 group-hover:text-black"
+    >
+        {title}
+    </p>
 </a>

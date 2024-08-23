@@ -17,12 +17,12 @@ const { pageTitle } = Astro.props;
     </head>
     <body>
         <Header />
-        {pageTitle ? <h1 class="title">{pageTitle}</h1> : null}
+        {
+            pageTitle ? (
+                <h1 class="pt-20 pb-10 text-center">{pageTitle}</h1>
+            ) : null
+        }
         <slot />
         <Footer />
-    </body><style>
-        .title {
-            padding-top: 40px;
-        }
-    </style>
+    </body>
 </html>

@@ -2,64 +2,28 @@
 
 ---
 
-<style>
-    /* Container for logo and license */
-    .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        border-top: 2px solid #ccc; /* Adds a grey line above */
-    }
-
-    /* Style for the license text */
-    .license a {
-        font-size: 14px;
-        color: gray;
-        text-decoration: none; /* Remove underline */
-        transition: color 0.3s ease;
-    }
-
-    /* Hover effect for license link */
-    .license a:hover {
-        color: black; /* Change to a blue color on hover */
-    }
-
-    .contact {
-        font-size: 14px;
-        color: gray;
-    }
-
-    .contact a {
-        font-family: monospace;
-        color: darkcyan;
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-
-    .contact a:hover {
-        color: turquoise; /* Change to a blue color on hover */
-    }
-</style>
-
 <body>
-    <!-- Container for License and Logo -->
-    <div class="container">
-        <!-- License text aligned on the left -->
-        <div class="license">
-            <a
-                href="https://github.com/your-username/your-repository/blob/main/LICENSE"
-                target="_blank"
-            >
-                © 2024 Ismaël Lajaaiti. All Rights Reserved.
-            </a>
+    <div
+        class="flex justify-between items-center p-2 border-t-2 border-gray-300"
+    >
+        <div class="text-sm text-gray-500">
+            © 2024 Ismaël Lajaaiti. All Rights Reserved.
         </div>
 
-        <div class="contact">
+        <div class="text-sm text-gray-500">
             Contact:
-            <a href="mailto:your-email@example.com"
-                >ismael.lajaaiti[at]gmail.com</a
+            <!-- Full email hidden on small screens, shown on larger screens -->
+            <a
+                class="font-mono sm:hidden"
+                href="mailto:ismael.lajaaiti@gmail.com">e-mail</a
             >
+            <!-- Full email shown on small screens and larger -->
+            <a
+                class="font-mono hidden sm:inline"
+                href="mailto:ismael.lajaaiti@gmail.com"
+            >
+                ismael.lajaaiti[at]gmail.com
+            </a>
         </div>
     </div>
 </body>

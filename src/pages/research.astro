@@ -4,16 +4,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Research";
 ---
 
-<style>
-    .research-statement {
-        flex: 1; /* Allow the text to take up available space */
-        text-align: justify; /* Justify the text within the container */
-    }
-</style>
-
 <BaseLayout pageTitle={pageTitle}>
     <FullWidthImage src="/assets/blackboard.jpg" alt="Blackboard" />
-    <section class="research-statement">
+    <section class="flex text-justify p-5">
         <p>
             I seek to understand what makes a community of interacting species
             stable in the face of disturbances. To do this, I study how the

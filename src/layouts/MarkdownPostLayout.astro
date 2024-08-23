@@ -13,52 +13,20 @@ const formattedDate = pubDate.toLocaleDateString("en-GB", {
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-    <div class="tags">
-        {
-            frontmatter.tags.map((tag) => (
-            <Tag tagName={tag}/>
-            ))
-        }
+    <div class="flex justify-center flex-wrap gap-2 mb-4 mt-0">
+        {frontmatter.tags.map((tag) => <Tag tagName={tag} />)}
     </div>
-    <p class="date">{formattedDate}</p>
+    <p class="text-center font-mono text-gray-500 text-sm">
+        {formattedDate}
+    </p>
 
     <img
         src={frontmatter.image.url}
-        class="post-image"
+        class="max-w-full h-auto rounded-lg shadow-md my-4 mx-auto"
         alt={frontmatter.image.alt}
     />
 
-    <div class="content">
+    <div class="leading-relaxed text-base max-w-3xl mx-auto my-5">
         <slot />
     </div>
-
-    <style>
-        .tags {
-            display: flex;
-            justify-content: center;
-        }
-
-        .date {
-            text-align: center;
-            font-family: monospace;
-            color: #777;
-            margin-left: auto; /* Ensures the date aligns to the right */
-            margin-bottom: 0em;
-        }
-
-        .post-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
-            margin: 1em auto;
-        }
-
-        .content {
-            line-height: 1.6;
-            font-size: 1em;
-            max-width: 700px;
-            margin: 20px auto;
-        }
-    </style>
 </BaseLayout>
