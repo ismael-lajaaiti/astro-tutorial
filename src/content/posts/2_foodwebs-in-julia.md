@@ -9,10 +9,13 @@ image:
 tags: ["ecology", "foodwebs", "julia"]
 ---
 
+
 Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
+test
 
 ## What I've accomplished
 
+This is a list: 
 1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
 
 2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
@@ -20,15 +23,16 @@ Welcome to my _new blog_ about learning Astro! Here, I will share my learning jo
 3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
 
 And here is an equation 
-$$ 
+$$
 \phi = 1 
 $$
 
-Here is my variable $a = 2$ test.
+Let $a=1$ and $b=2$ be two numbers.
 
-```r
+```r del={2} ins={3}
 library(tidyverse)
 a = 1 # This is a comment.
+a = 2
 ```
 
 And here is a julia code block

@@ -1,26 +1,14 @@
 @import "@fontsource-variable/noto-sans";
 @import "@fontsource/playfair-display";
+@import "@fontsource-variable/inter";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-    body {
-        @apply font-sans;
-    }
-
     h1 {
-        @apply scroll-m-20 text-4xl font-playfair tracking-tight lg:text-5xl;
-    }
-
-    h2 {
-        @apply scroll-m-20 border-b py-2 text-3xl font-playfair;
-    }
-
-    p {
-        @apply leading-7 [&:not(:first-child)]:mt-6;
+        @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
     }
 
     a {
@@ -37,5 +25,5 @@ html {
 }
 
 body {
-    @apply mx-auto w-full max-w-[80ch] p-4 leading-relaxed relative z-10;
+    @apply mx-auto w-full max-w-[70ch] p-4 leading-relaxed relative z-0;
 }

@@ -6,9 +6,11 @@ export default {
         extend: {
             fontFamily: {
                 playfair: ['Playfair Display', 'serif'],
-                sans: ['"Noto Sans Variable"', 'sans-serif'],
+                sans: ['Inter Variable', 'Noto Sans Variable', 'sans-serif'],
             },
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography'),
+    ],
 }

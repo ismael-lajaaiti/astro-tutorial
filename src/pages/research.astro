@@ -1,4 +1,5 @@
 ---
+import Prose from "../components/Prose.astro";
 import FullWidthImage from "../components/FullWidthImage.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Research";
@@ -6,20 +7,22 @@ const pageTitle = "Research";
 
 <BaseLayout pageTitle={pageTitle}>
     <FullWidthImage src="/assets/blackboard.jpg" alt="Blackboard" />
-    <section class="flex text-justify p-5">
-        <p>
-            I seek to understand what makes a community of interacting species
-            stable in the face of disturbances. To do this, I study how the
-            complex web of interactions among species shapes their responses to
-            different types of disturbances, from short-term events to long-term
-            changes. My goal is to uncover how species' responses are connected:
-            for instance, are species that are sensitive to short-term
-            disturbances also vulnerable to long-term changes? Additionally, I
-            want to see how these relationships vary depending on the type of
-            interactions within the community, such as whether they differ
-            between competitive, mutualistic, or trophic communities. I approach
-            these questions using a combination of mathematical and numerical
-            tools.
-        </p>
+    <section class="py-5">
+        <Prose>
+            <p>
+                I seek to understand what makes a community of interacting
+                species stable in the face of disturbances. To do this, I study
+                how the complex web of interactions among species shapes their
+                responses to different types of disturbances, from short-term
+                events to long-term changes. My goal is to uncover how species'
+                responses are connected: for instance, are species that are
+                sensitive to short-term disturbances also vulnerable to
+                long-term changes? Additionally, I want to see how these
+                relationships vary depending on the type of interactions within
+                the community, such as whether they differ between competitive,
+                mutualistic, or trophic communities. I approach these questions
+                using a combination of mathematical and numerical tools.
+            </p>
+        </Prose>
     </section>
 </BaseLayout>

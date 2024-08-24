@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Publication from "../components/Publication.astro";
+import Prose from "../components/Prose.astro";
 import FullWidthImage from "../components/FullWidthImage.astro";
 import Tag from "../components/Tag.astro";
-const pageTitle = "Ecology, Webs, and Programming";
+const pageTitle = "Home";
 const interests = [
     "ecology",
     "stability",
@@ -17,18 +18,20 @@ const interests = [
 <BaseLayout pageTitle={pageTitle}>
     <FullWidthImage src="/assets/hero.jpg" alt="Spider web" />
 
-    <section class="py-2">
-        <h2>Ismaël Lajaaiti</h2>
+    <section class="py-6">
         <div class="flex items-center gap-8 mt-4">
             <div class="flex-1 text-justify">
-                <p>
-                    I'm a PhD student in theoretical ecology at <a
-                        href="https://isem-evolution.fr/">ISEM</a
-                    > in Montpellier, France. I explore the simple patterns that
-                    emerge from the complexity of ecological systems using mathematical
-                    equations and computer simulations. Outside the lab, you’ll likely
-                    find me solving problems at the climbing gym.
-                </p>
+                <Prose>
+                    <h2>Ismaël Lajaaiti</h2>
+                    <p>
+                        I'm a PhD student in theoretical ecology at <a
+                            href="https://isem-evolution.fr/">ISEM</a
+                        > in Montpellier, France. I explore the simple patterns that
+                        emerge from the complexity of ecological systems using mathematical
+                        equations and computer simulations. Outside the lab, you’ll
+                        likely find me solving problems at the climbing gym.
+                    </p>
+                </Prose>
             </div>
             <div class="flex-shrink-0">
                 <img
@@ -40,7 +43,7 @@ const interests = [
         </div>
     </section>
 
-    <section class="p-2">
+    <section class="pb-4">
         {
             interests.map((interest) => (
                 <>
@@ -53,7 +56,7 @@ const interests = [
     </section>
 
     <section>
-        <h2>Publications</h2>
+        <Prose><h2 class="py-4">Publications</h2></Prose>
         <Publication
             title="How biotic interactions structure species responses to perturbations"
             authors="I. Lajaaiti, S. Kéfi, J-F. Arnoldi"
