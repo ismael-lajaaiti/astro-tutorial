@@ -29,7 +29,7 @@ $$
 
 Let $a=1$ and $b=2$ be two numbers.
 
-```r del={2} ins={3}
+```r "a" 
 library(tidyverse)
 a = 1 # This is a comment.
 a = 2
