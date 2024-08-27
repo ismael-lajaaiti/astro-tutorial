@@ -1,5 +1,5 @@
 ---
-title: Simulating food web dynamics in Julia
+title: The cavity method for dummies
 pubDate: 2024-08-21
 description: This is the first post of my new Astro blog.
 author: Ismaël Lajaaiti
