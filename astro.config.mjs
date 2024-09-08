@@ -11,7 +11,8 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-    // site: "https://astro-tutorial-2048.netlify.app",
+    site: 'https://ismael-lajaaiti.github.io',
+    // base: 'my-repo',
     integrations: [expressiveCode({
         plugins: [pluginCollapsibleSections()]
     }), icon(), tailwind(), react()],
