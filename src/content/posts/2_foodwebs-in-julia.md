@@ -9,6 +9,8 @@ image:
 tags: ["ecology", "foodwebs", "julia"]
 ---
 
+> [!warning]
+> Work in progress, coming soon (or not).
 
 Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
 test

@@ -23,6 +23,7 @@
     "@fontsource/barlow": "^5.0.13",
     "@fontsource/geist-sans": "^5.0.3",
     "@fontsource/playfair-display": "^5.0.25",
+    "@r4ai/remark-callout": "^0.6.1",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "astro": "^4.13.2",

@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import remarkCallout from "@r4ai/remark-callout";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 // import rehypeMathJax from "rehype-mathjax";
@@ -18,7 +19,7 @@ export default defineConfig({
     }), icon(), tailwind(), react()],
     markdown: {
         extendDefaultPlugins: true,
-        remarkPlugins: [remarkMath],
+        remarkPlugins: [remarkMath, remarkCallout],
         rehypePlugins: [rehypeKatex]
     }
 });
